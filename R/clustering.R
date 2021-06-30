@@ -62,7 +62,7 @@ varCluster <- function(mutcalls, fn = 0.1, fp = 0.02, cores = 1, time =10000, te
     }
     if(method == 'SCITE'){
         ##base <- '/g/steinmetz/story/tools/SCITE/scite'
-        base <- system.file("extdata/SCITE",package = "mitoClone2")
+        base <- system.file("lib/SCITE/scite",package = "mitoClone2")
         command <- sprintf("%s %s -i %s -names %s -n %d -max_treelist_size 1 -a -m %d -r 1 -l 200000 -ad %.2f -fd %.2f -o %s",
                            ifelse(python_env =="", "", paste0(python_env,"; ")),
                            base, file.path(tempfolder,"input_scite.txt"),

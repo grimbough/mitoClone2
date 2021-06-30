@@ -9,3 +9,14 @@ RHTSLIB_CPPFLAGS=$(shell echo 'Rhtslib::pkgconfig("PKG_CPPFLAGS")'|\
 
 PKG_LIBS=$(RHTSLIB_LIBS)
 PKG_CPPFLAGS=$(RHTSLIB_CPPFLAGS)
+
+USER_LIB_DIR=${R_PACKAGE_DIR}/lib/SCITE/
+
+all: copying $(SHLIB)
+
+copying: scite
+	mkdir -p "${USER_LIB_DIR}"
+	cp scite "${USER_LIB_DIR}"
+
+scite:
+	$(CXX) $(CXXFLAGS) SCITE/*.cpp -o scite
